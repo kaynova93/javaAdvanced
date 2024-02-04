@@ -8,8 +8,11 @@ public class Main {
 //        TaskTwo two = new TaskTwo();
 //        two.run();
 
-        TaskThree1 three = new TaskThree1();
-        three.run();
+//        TaskThree1 three = new TaskThree1();
+//        three.run();
+
+        TaskThree2 three2 = new TaskThree2();
+        three2.run();
 
     }
 }
