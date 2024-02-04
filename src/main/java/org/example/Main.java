@@ -5,7 +5,11 @@ public class Main {
 //        TaskOne one = new TaskOne();
 //        one.run();
 
-        TaskTwo two = new TaskTwo();
-        two.run();
+//        TaskTwo two = new TaskTwo();
+//        two.run();
+
+        TaskThree1 three = new TaskThree1();
+        three.run();
+
     }
 }
