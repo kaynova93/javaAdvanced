@@ -1,9 +1,6 @@
 package org.example.taskThree2;
 
-import java.util.UUID;
-
 public class Candy {
-    private String id = UUID.randomUUID().toString();
     private String name;
     private double weight;
     private double price;
@@ -32,10 +29,6 @@ public class Candy {
         return price;
     }
 
-    public String getId() {
-        return id;
-    }
-
     public Candy(String name, double weight, double price) {
         this.name = name;
         this.weight = weight;
@@ -44,11 +37,10 @@ public class Candy {
 
     /**
      * Информация о конфете.
-     *
      * @return всю инф о конфете
      */
     @Override
     public String toString() {
-        return "имя = " + name + "\nid конфеты = " + id + "\nвес = " + weight + "\nцена = " + price;
+        return "имя = " + name + "\nвес = " + weight + "\nцена = " + price;
     }
 }

@@ -4,7 +4,7 @@ public class TaskThree1 {
 
     int minNumber = -10, maxNumber = 10;
     static int minIndex = 0, maxIndex = 0, searchMin = 0, searchMax = 0;
-    int[] arr = new int[5];
+    int[] arr = new int[20];
     /**
      * Запуск метода run, вызывает методы для работы
      * и вывод к консоль информации
@@ -38,22 +38,30 @@ public class TaskThree1 {
      * minIndex - индекс найденного searchMin
      */
     public void searchMinMax(int[] arr) {
-        int count = 0;
+        int countMax = 0, countMin = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 0) {
-                if (count == 0) {
+                if (countMax == 0) {
                     searchMax = arr[i];
                     maxIndex = i;
-                    count++;
+                    countMax++;
                 } else {
                     if (arr[i] < searchMax) {
                         searchMax = arr[i];
                         maxIndex = i;
                     }
                 }
-            } else if (arr[i] < searchMin) {
-                searchMin = arr[i];
-                minIndex = i;
+            } else if (arr[i] < 0) {
+                if (countMin == 0) {
+                    searchMin = arr[i];
+                    minIndex = i;
+                    countMin++;
+                } else {
+                    if(arr[i] > searchMin) {
+                        searchMin = arr[i];
+                        minIndex = i;
+                    }
+                }
             }
         }
     }
