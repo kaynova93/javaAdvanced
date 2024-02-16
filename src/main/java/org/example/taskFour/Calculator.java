@@ -1,28 +1,60 @@
 package org.example.taskFour;
 
-import org.example.taskFour.operators.Sum;
-import org.example.taskFour.parser.CalcParser;
+import lombok.Getter;
+import lombok.Setter;
+import org.example.taskFour.operators.Operation;
 
-import java.util.Scanner;
 
-public class Calculator {
-
-    private CalcParser calcParser;
+public class Calculator extends Operation{
     private static final String RESULT = "Итог = ";
+    @Getter
+    String error;
+    @Getter
+    Double result;
 
-    public Calculator(CalcParser calcParser) {
-        this.calcParser = calcParser;
+    public Calculator(Double number1, Double number2) {
+        super(number1, number2);
+    }
+
+    public Calculator(Double number1, Double number2, String operator) {
+        super(number1, number2, operator);
     }
 
     /**
      * Метод для запуска калькулятора
-     * @param num1      - число 1
-     * @param operation - операция
-     * @param num2      - число 2
      */
-    public void calculate(Double num1, String operation, Double num2) {
-        final Sum sum = calcParser.parse(num1, operation, num2);
-        System.out.printf(RESULT +"%.2f",sum.result());
+    public void calculate() {
+       calc();
+       if (result!= null) {
+           System.out.printf(RESULT + "%.2f", result);
+       }else{
+           System.out.printf(RESULT + error);
+       }
 
+    }
+
+    /**
+     * Метод получает данные для работы калькулятора
+     * оборачивает в интерфейс Sum
+     * Проверяет переденную на вход операцию
+     * Если операция есть, создает класс наследник и
+     * @return результат операции
+     */
+    public void calc() {
+        if (isOperation(operator)){
+            //  Operation operation = new Operation(getNum1(),getNum2(),getOperator());
+            result = result();
+        }else {
+            error = "Ошибка. Такой операции нет";
+        }
+    }
+
+    /**
+     * Проверка реализованных операций
+     * @param operator - оператор
+     * @return - true|false
+     */
+    public boolean isOperation(String operator){
+        return operator.equals("+") || operator.equals("-")||operator.equals("*")||operator.equals("/");
     }
 }
