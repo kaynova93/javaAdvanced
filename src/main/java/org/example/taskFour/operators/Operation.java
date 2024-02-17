@@ -2,6 +2,7 @@ package org.example.taskFour.operators;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.taskFour.CalculatorException;
 
 public class Operation implements Sum {
 
@@ -59,7 +60,10 @@ public class Operation implements Sum {
      * @return Double
      */
     public Double division(){
-        return number1/number2;
+        if (number2==0.0){
+            throw new CalculatorException("Деление на ноль запрeщено");
+        }
+        return  number1 / number2;
     }
     /**
      * Метод умножение

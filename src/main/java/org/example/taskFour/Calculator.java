@@ -1,14 +1,12 @@
 package org.example.taskFour;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.example.taskFour.operators.Operation;
 
 
 public class Calculator extends Operation{
     private static final String RESULT = "Итог = ";
-    @Getter
-    String error;
+
     @Getter
     Double result;
 
@@ -25,12 +23,7 @@ public class Calculator extends Operation{
      */
     public void calculate() {
        calc();
-       if (result!= null) {
-           System.out.printf(RESULT + "%.2f", result);
-       }else{
-           System.out.printf(RESULT + error);
-       }
-
+       System.out.printf(RESULT + "%.2f", result);
     }
 
     /**
@@ -42,10 +35,9 @@ public class Calculator extends Operation{
      */
     public void calc() {
         if (isOperation(operator)){
-            //  Operation operation = new Operation(getNum1(),getNum2(),getOperator());
             result = result();
         }else {
-            error = "Ошибка. Такой операции нет";
+            throw new CalculatorException("Ошибка. Такая операция не реализована.");
         }
     }
 

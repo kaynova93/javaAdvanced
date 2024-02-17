@@ -20,11 +20,12 @@ public class Main {
 //        TaskThree2 three2 = new TaskThree2();
 //        three2.run();
 
-        Calculator calculator2 = new Calculator(2.0,2.0);
-        System.out.println(calculator2.addition());
-
-        Calculator calculator = new Calculator(2.0,2.0,"+");
-        calculator.calculate();
+//        //Калькулятор ООП
+//        Calculator calculator2 = new Calculator(2.0,2.0);
+//        System.out.println(calculator2.addition());
+//
+//        Calculator calculator = new Calculator(2.0,3.4,"+");
+//        calculator.calculate();
 
 //        Reader r = new Reader();
 //        List<String> listString = r.read();
@@ -34,5 +35,14 @@ public class Main {
 //        System.out.println("Отсортированные данные = \n" + listString);
 //        taskFive.counterDuplicate(listString);
 //        taskFive.printResult();
+
+
+        //Задание №6_ Обработка исключений
+        //Деление на 0
+        Calculator calculator = new Calculator(2.0,0.0,"/");
+        calculator.calculate();
+        //выбрана операция, которой нет
+        Calculator calculator2 = new Calculator(2.0,6.0,".");
+        calculator2.calculate();
     }
 }
