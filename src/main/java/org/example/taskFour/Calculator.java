@@ -22,8 +22,14 @@ public class Calculator extends Operation{
      * Метод для запуска калькулятора
      */
     public void calculate() {
-       calc();
-       System.out.printf(RESULT + "%.2f", result);
+        try {
+            calc();
+            System.out.printf(RESULT + "%.2f", result);
+        }catch (ArithmeticException arithmeticException){
+            System.out.println(arithmeticException);
+        }catch (CalculatorException calculatorException){
+            System.out.println(calculatorException);
+        }
     }
 
     /**
@@ -34,10 +40,10 @@ public class Calculator extends Operation{
      * @return результат операции
      */
     public void calc() {
-        if (isOperation(operator)){
-            result = result();
-        }else {
-            throw new CalculatorException("Ошибка. Такая операция не реализована.");
+            if (isOperation(operator)) {
+                result = result();
+            } else {
+                throw new CalculatorException("Ошибка. Такая операция не реализована.");
         }
     }
 

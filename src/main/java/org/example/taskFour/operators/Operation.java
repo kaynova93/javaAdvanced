@@ -61,7 +61,7 @@ public class Operation implements Sum {
      */
     public Double division(){
         if (number2==0.0){
-            throw new CalculatorException("Деление на ноль запрeщено");
+            throw new ArithmeticException("Деление на ноль запрeщено");
         }
         return  number1 / number2;
     }
