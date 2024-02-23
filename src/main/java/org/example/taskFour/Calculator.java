@@ -14,21 +14,22 @@ public class Calculator extends Operation{
         super(number1, number2);
     }
 
-    public Calculator(Double number1, Double number2, String operator) {
-        super(number1, number2, operator);
-    }
+//    public Calculator(Double number1, Double number2, String operator) {
+//        super(number1, number2, operator);
+//    }
 
     /**
      * Метод для запуска калькулятора
      */
-    public void calculate() {
+    public void calculate(String operator) {
         try {
-            calc();
+            calc(operator);
             System.out.printf(RESULT + "%.2f", result);
         }catch (ArithmeticException arithmeticException){
             System.out.println(arithmeticException);
         }catch (CalculatorException calculatorException){
             System.out.println(calculatorException);
+            calculatorException.getStackTrace();
         }
     }
 
@@ -39,11 +40,12 @@ public class Calculator extends Operation{
      * Если операция есть, создает класс наследник и
      * @return результат операции
      */
-    public void calc() {
+    public void calc(String operator) {
             if (isOperation(operator)) {
-                result = result();
+                result = result(operator);
             } else {
-                throw new CalculatorException("Ошибка. Такая операция не реализована.");
+                throw new CalculatorException("Ошибка. Такой операции нет.");
+               // throw new RuntimeException();
         }
     }
 

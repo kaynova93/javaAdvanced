@@ -10,29 +10,29 @@ public class Operation implements Sum {
     protected Double number1;
     @Getter @Setter
     protected Double number2;
-    @Getter @Setter
-    protected String operator;
+//    @Getter @Setter
+//    protected String operator;
 
     public Operation(Double number1, Double number2) {
         this.number1 = number1;
         this.number2 = number2;
     }
 
-    public Operation(Double number1, Double number2,String operator) {
-        this.number1 = number1;
-        this.number2 = number2;
-        this.operator = operator;
-    }
+//    public Operation(Double number1, Double number2,String operator) {
+//        this.number1 = number1;
+//        this.number2 = number2;
+//        this.operator = operator;
+//    }
 
-    public Double result() {
-        return transformationNumber();
+    public Double result(String operator) {
+        return transformationNumber(operator);
     }
 
     /**
      * Метод определяет нужную операцию и возвращает результат.
      * @return - результат
      */
-    protected Double transformationNumber() {
+    protected Double transformationNumber(String operator) {
 
         Double result = operator.equals("+") ? addition() :
                 operator.equals("-") ? subtraction() :

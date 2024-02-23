@@ -39,10 +39,10 @@ public class Main {
 
         //Задание №6_ Обработка исключений
         //Деление на 0
-        Calculator calculator = new Calculator(2.0,0.0,"/");
-        calculator.calculate();
+        Calculator calculator = new Calculator(2.0,0.0);
+        calculator.calculate("/");
         //выбрана операция, которой нет
-        Calculator calculator2 = new Calculator(2.0,6.0,".");
-        calculator2.calculate();
+        Calculator calculator2 = new Calculator(2.0,6.0);
+        calculator2.calculate(".");
     }
 }
